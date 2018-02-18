@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/top" android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_contacts"
+            android:icon="@drawable/ic_people"
+            android:title="@string/menu_contacts" />
+
+        <item
+            android:id="@+id/menu_profile"
+            android:icon="@drawable/ic_person"
+            android:title="@string/menu_profile" />
+    </group>
+
+    <group android:id="@+id/bottom" android:checkableBehavior="none">
+        <item
+            android:checkable="false"
+            android:id="@+id/menu_terms"
+            android:icon="@drawable/ic_info"
+            android:title="@string/menu_author" />
+
+    </group>
+
+</menu>
