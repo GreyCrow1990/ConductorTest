@@ -20,7 +20,7 @@ class ContactDetailsController : BaseController {
     constructor() : super()
     constructor(args: Bundle?) : super(args)
 
-    private val contactId: Int = args.getInt(KEY_CONTACT_ID)
+    private val contactId: Int by lazy { args.getInt(KEY_CONTACT_ID) }
 
     private val toolbarView by bindView<Toolbar>(R.id.toolbar_view)
     private val nameTextView by bindView<TextView>(R.id.profile_name_text_view)
@@ -29,12 +29,20 @@ class ContactDetailsController : BaseController {
     private val emailTextView by bindView<TextView>(R.id.email_text_view)
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View {
-        return inflater.inflate(R.layout.controller_contact_details, container, false)
+        return inflater.inflate(
+            R.layout.controller_contact_details,
+            container,
+            false
+        )
     }
 
     override fun onBindView(view: View) {
         super.onBindView(view)
         initToolbar()
+    }
+
+    override fun onAttach(view: View) {
+        super.onAttach(view)
         ContactsManager.find(contactId)?.apply {
             nameTextView.text = name
             phoneTextView.text = phone
@@ -50,7 +58,9 @@ class ContactDetailsController : BaseController {
             return@setOnMenuItemClickListener when (item.itemId) {
                 R.id.edit -> {
                     router.pushController(
-                        RouterTransaction.with(EditContactController.newInstance(contactId))
+                        RouterTransaction.with(
+                            EditContactController.newInstance(contactId)
+                        )
                             .pushChangeHandler(FadeChangeHandler())
                             .popChangeHandler(FadeChangeHandler())
                     )

@@ -35,7 +35,9 @@ class ContactsController : BaseController,
         recyclerView.adapter = ContactsAdapter(object : ContactsAdapter.Listener {
             override fun onContactSelected(contactData: ContactData) {
                 rootRouter()?.pushController(
-                    RouterTransaction.with(ContactDetailsController.newInstance(contactData.id))
+                    RouterTransaction.with(
+                        ContactDetailsController.newInstance(contactData.id)
+                    )
                         .pushChangeHandler(HorizontalChangeHandler())
                         .popChangeHandler(HorizontalChangeHandler())
                 )
