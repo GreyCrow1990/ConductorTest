@@ -1,11 +1,11 @@
 FROM openjdk:8
 
-ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip" \
+ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip" \
     ANDROID_SDK="/usr/local/android-sdk" \
     ANDROID_NDK="/usr/local/android-ndk" \
     ANDROID_VERSION=27 \
     ANDROID_BUILD_TOOLS_VERSION=27.0.3 \
-    ANDROID_NDK_URL="https://dl.google.com/android/repository/android-ndk-r14b-darwin-x86_64.zip"
+    ANDROID_NDK_URL="https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip"
 
 
 # Use machine cache Android SDK
