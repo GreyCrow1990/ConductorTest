@@ -24,6 +24,7 @@ node {
 
 def imagePrune(){
     try {
+        sh 'id -un'
         sh "/usr/local/bin/docker image prune -f"
         sh "/usr/local/bin/docker stop test.image"
     } catch(error){}
