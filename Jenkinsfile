@@ -22,7 +22,7 @@ node {
     }
 }
 
-def imagePrune(containerName){
+def imagePrune(){
     try {
         sh "docker image prune -f"
         sh "docker stop testImage"
