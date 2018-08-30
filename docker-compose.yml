@@ -9,5 +9,3 @@ services:
     volumes:
       - /tmp/jenkins:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
       - /var/run/docker.sock:/var/run/docker.sock
-    depends_on:
-      - sonarqube
