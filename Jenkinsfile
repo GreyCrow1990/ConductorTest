@@ -24,16 +24,16 @@ node {
 
 def imagePrune(){
     try {
-        sh "docker image prune -f"
-        sh "docker stop testImage"
+        sh "/usr/local/bin/docker image prune -f"
+        sh "/usr/local/bin/docker stop testImage"
     } catch(error){}
 }
 
 def imageBuild(){
-    sh "docker build --rm -t testImage -f ./DockerFile ."
+    sh "/usr/local/bin/docker build --rm -t testImage -f ./DockerFile ."
     echo "Image build complete"
 }
 
 def runApp() {
-    sh "docker run --it --rm -v "$PWD":/application packsdkandroiddocker.image"
+    sh "/usr/local/bin/docker run --it --rm -v "$PWD":/application packsdkandroiddocker.image"
 }
