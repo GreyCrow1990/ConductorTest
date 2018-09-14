@@ -25,16 +25,16 @@ node {
 def imagePrune(){
     try {
         sh 'id -un'
-        sh "myDocker image prune -f"
-        sh "myDocker stop test.image"
+        sh "docker image prune -f"
+        sh "docker stop test.image"
     } catch(error){}
 }
 
 def imageBuild(){
-    sh "myDocker build -t test.image -f ./DockerFile ."
+    sh "docker build -t test.image -f ./DockerFile ."
     echo "Image build complete"
 }
 
 def runApp() {
-    sh "myDocker run --it --rm -v "$PWD":/application test.image"
+    sh "docker run --it --rm -v "$PWD":/application test.image"
 }
